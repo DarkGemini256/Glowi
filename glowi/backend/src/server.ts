@@ -5,8 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 
-import { router as authRouter } from './routes/auth';
-import { router as entriesRouter } from './routes/entries';
+import { authRouter, entriesRouter, quizRouter, routinesRouter, streaksRouter } from './routes';
 
 const app = express();
 
@@ -24,6 +23,9 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/auth', authRouter);
 app.use('/api/entries', entriesRouter);
+app.use('/api/quiz', quizRouter);
+app.use('/api/routines', routinesRouter);
+app.use('/api/streaks', streaksRouter);
 
 const port = Number(process.env.PORT) || 4000;
 app.listen(port, () => {

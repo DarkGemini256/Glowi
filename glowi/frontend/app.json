@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "frontend",
-    "slug": "frontend",
+    "name": "Glowi",
+    "slug": "glowi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +22,9 @@
       },
       "edgeToEdgeEnabled": true
     },
+    "plugins": [
+      ["expo-notifications", {"icon": "./assets/icon.png"}]
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     }

@@ -16,6 +16,11 @@ model User {
   name          String?
   passwordHash  String
   tokenVersion  Int      @default(0)
+  skinType      String?
+  allergyProfile Json?
+  hydrationStreak Int    @default(0)
+  tanningStreak   Int    @default(0)
+  irritationFreeStreak Int @default(0)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   entries       Entry[]
