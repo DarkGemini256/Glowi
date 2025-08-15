@@ -1,0 +1,1 @@
+{ "name": "React Native with Azure", "dockerFile": "Dockerfile", "context": "..", "postCreateCommand": "npm install", "settings": { "terminal.integrated.shell.linux": "/bin/bash" }, "extensions": [ "ms-vscode.vscode-typescript-tslint-plugin", "ms-azuretools.vscode-azurefunctions", "ms-azuretools.vscode-azurestorage" ], "forwardPorts": [8081], "remoteUser": "vscode" }
