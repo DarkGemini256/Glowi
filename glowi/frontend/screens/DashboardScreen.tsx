@@ -5,13 +5,27 @@ import StreakProgressBar from '@components/StreakProgressBar';
 import { useStore } from '@store/index';
 import { useSeasonDetector } from '@hooks/useSeasonDetector';
 import { useStreakTracker } from '@hooks/useStreakTracker';
+import * as Location from 'expo-location';
+import * as Speech from 'expo-speech';
+import * as Haptics from 'expo-haptics';
 
 export default function DashboardScreen({ navigation }: any) {
 	const { baseUrl, token } = useStore();
-	const { currentSeason } = useSeasonDetector();
+	const { currentSeason, fetchUVSeason } = useSeasonDetector();
 	const { streaks, incrementStreak } = useStreakTracker(baseUrl, token ?? '');
 	const [hydrationVisible, setHydrationVisible] = useState(false);
+	const [season, setSeason] = useState(currentSeason);
 	useEffect(() => { const t = setInterval(() => setHydrationVisible(true), 1000 * 60 * 120); return () => clearInterval(t); }, []);
+	useEffect(() => { (async () => {
+		const { status } = await Location.requestForegroundPermissionsAsync();
+		if (status === 'granted') {
+			const loc = await Location.getCurrentPositionAsync({});
+			const s = await fetchUVSeason(loc.coords.latitude, loc.coords.longitude);
+			setSeason(s);
+			Speech.speak(`Season detected is ${s}`);
+		}
+	})(); }, []);
+	useEffect(() => { if (streaks.hydration && streaks.hydration % 7 === 0) Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success); }, [streaks.hydration]);
 	return (
 		<View style={styles.container}>
 			<Text style={styles.heading}>Glowi Dashboard</Text>
@@ -21,7 +35,7 @@ export default function DashboardScreen({ navigation }: any) {
 			</View>
 			<Pressable onPress={() => navigation.navigate('Routines')} style={styles.card}>
 				<Text style={styles.title}>Recommended Routine</Text>
-				<Text>Season: {currentSeason}</Text>
+				<Text>Season: {season}</Text>
 				<Text>Choose from 12 tanning routines</Text>
 			</Pressable>
 			<HydrationReminderModal visible={hydrationVisible} onSnooze={() => setHydrationVisible(false)} onDismiss={() => setHydrationVisible(false)} onLogWater={() => { incrementStreak('hydration'); setHydrationVisible(false); }} />

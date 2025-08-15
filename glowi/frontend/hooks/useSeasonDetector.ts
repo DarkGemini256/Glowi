@@ -9,8 +9,18 @@ export function useSeasonDetector() {
 		return 'fall';
 	}
 	const currentSeason = monthToSeason();
-	function adjustRoutines(routines: string[], season: Season = currentSeason) {
-		return routines;
+	async function fetchUVSeason(lat: number, lon: number): Promise<Season> {
+		try {
+			const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=uv_index`);
+			const data = await res.json();
+			const uv = data?.current?.uv_index ?? 0;
+			if (uv >= 6) return 'summer';
+			if (uv <= 2) return 'winter';
+			return currentSeason;
+		} catch {
+			return currentSeason;
+		}
 	}
-	return { currentSeason, adjustRoutines };
+	function adjustRoutines(routines: string[], season: Season = currentSeason) { return routines; }
+	return { currentSeason, adjustRoutines, fetchUVSeason };
 }
