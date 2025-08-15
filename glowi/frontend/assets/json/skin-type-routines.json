@@ -1,0 +1,20 @@
+{
+	"tanning": {
+		"I": ["5min exposure SPF 50", "7min exposure SPF 50 + hat", "10min with shade breaks", "Self-tan lotion alternative", "Morning sun 7min", "Evening tan 10min", "Hydrated tan", "Vitamin D supplement", "Minimal tan high protection", "Custom shade routine", "Beach walk SPF 50", "Pool tan with cover-up"],
+		"II": ["10min SPF 50", "12min SPF 50", "15min SPF 30", "Breaks every 5min", "Avoid peak UV", "Water breaks", "Hat + sunglasses", "SPF reapply", "Shade intervals", "Post-sun aloe", "Electrolytes", "Short UV lamp"],
+		"III": ["15-20min SPF 30", "20min SPF 30", "25min SPF 30", "Hydrate often", "Avoid acids post-sun", "Soothing lotion", "Evening tan", "Morning tan", "Poolside tan", "Walk tan", "Breaks"] ,
+		"IV": ["20-30min SPF 30", "25min SPF 30", "30min SPF 30", "Hydrate often", "Avoid peak UV", "Shade breaks", "Post-sun soothe", "Electrolytes", "Evening tan", "Morning tan", "Beach tan"],
+		"V": ["30-40min SPF 15", "35min SPF 15", "40min SPF 15", "Avoid peak UV", "Oil optional", "Hydrate", "Post-sun light moisturizer", "Evening tan", "Morning tan", "Beach tan", "Walk tan", "Pool tan"],
+		"VI": ["40-50min SPF 15", "45min SPF 15", "50min lower SPF", "Avoid peak UV", "Oil based", "Hydrate well", "Post-sun light", "Evening tan", "Morning tan", "Beach tan", "Walk tan", "Pool tan"]
+	},
+	"winter": {
+		"I": ["Gel cleanse + HA", "Rich cream", "Face oil seal", "Humidifier", "Oat mask", "Lip balm", "Avoid hot showers", "Omega-3 foods", "Barrier repair serum", "Night mask", "SPF indoors"],
+		"II": ["Gel cleanse + HA", "Rich cream", "Oil seal", "Humidifier", "Oat mask", "Lip balm", "Avoid hot showers", "Barrier serum", "Night mask", "SPF indoors", "Extra layer"],
+		"III": ["Gel cleanse + HA", "Rich cream", "Oil seal", "Humidifier", "Oat mask", "Lip balm", "Avoid hot showers", "Barrier serum", "Night mask", "SPF indoors", "Add ceramides"],
+		"IV": ["Gentle cleanse", "HA serum", "Cream", "Oil seal", "Humidifier", "Oat mask", "Lip balm", "Warm showers", "Barrier serum", "Night mask", "SPF"],
+		"V": ["Gentle cleanse", "HA serum", "Cream", "Oil seal", "Humidifier", "Oat mask", "Lip balm", "Barrier serum", "Night mask", "SPF", "Shea butter"],
+		"VI": ["Gentle cleanse", "HA serum", "Cream", "Oil seal", "Humidifier", "Oat mask", "Lip balm", "Barrier serum", "Night mask", "SPF", "Occlusive layer"]
+	},
+	"hydration": ["Drink 8 glasses water", "Hydrating mask 3x/week", "Hyaluronic serum AM/PM", "Water-rich foods", "Reminder every 2hr", "Track intake log", "Infused water", "Post-exercise hydrate", "Night water ritual", "Hydration goal badges", "Seasonal adjust", "Extra in summer", "Dry skin extra serum", "Allergy-safe hydration", "Post-sun water"],
+	"allergySafe": ["Fragrance-free basics", "Avoid acids/retinol", "Oat soothing mask", "Niacinamide serum", "Ceramide cream", "SPF mineral", "Hypoallergenic cleanser", "Short routines <4 steps", "Patch test", "Indoor only on high pollen", "Barrier repair", "Cool compress"]
+}
