@@ -12,7 +12,10 @@ import AllergyQuizScreen from '@screens/AllergyQuizScreen';
 import TermsScreen from '@screens/TermsScreen';
 import PrivacyScreen from '@screens/PrivacyScreen';
 import PricingScreen from '@screens/PricingScreen';
+import LoginScreen from '@screens/LoginScreen';
 import * as Notifications from 'expo-notifications';
+import { useAuth } from '@hooks/useAuth';
+import { useStore } from '@store/index';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -30,6 +33,8 @@ function Tabs() {
 }
 
 export default function App() {
+	const { token } = useStore();
+	useAuth();
 	useEffect(() => {
 		Notifications.setNotificationHandler({
 			handleNotification: async () => ({ shouldPlaySound: false, shouldShowAlert: true, shouldSetBadge: false })
@@ -38,12 +43,18 @@ export default function App() {
 	return (
 		<NavigationContainer theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors, primary: '#ff7f32' } }}>
 			<Stack.Navigator screenOptions={{ headerShown: false }}>
-				<Stack.Screen name="Root" component={Tabs} />
-				<Stack.Screen name="SkinTypeQuiz" component={SkinTypeQuizScreen} />
-				<Stack.Screen name="AllergyQuiz" component={AllergyQuizScreen} />
-				<Stack.Screen name="Terms" component={TermsScreen} />
-				<Stack.Screen name="Privacy" component={PrivacyScreen} />
-				<Stack.Screen name="Pricing" component={PricingScreen} />
+				{!token ? (
+					<Stack.Screen name="Login" component={LoginScreen} />
+				) : (
+					<>
+						<Stack.Screen name="Root" component={Tabs} />
+						<Stack.Screen name="SkinTypeQuiz" component={SkinTypeQuizScreen} />
+						<Stack.Screen name="AllergyQuiz" component={AllergyQuizScreen} />
+						<Stack.Screen name="Terms" component={TermsScreen} />
+						<Stack.Screen name="Privacy" component={PrivacyScreen} />
+						<Stack.Screen name="Pricing" component={PricingScreen} />
+					</>
+				)}
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
