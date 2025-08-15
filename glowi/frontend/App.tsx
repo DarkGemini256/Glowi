@@ -9,6 +9,9 @@ import RoutinesScreen from '@screens/RoutinesScreen';
 import SettingsScreen from '@screens/SettingsScreen';
 import SkinTypeQuizScreen from '@screens/SkinTypeQuizScreen';
 import AllergyQuizScreen from '@screens/AllergyQuizScreen';
+import TermsScreen from '@screens/TermsScreen';
+import PrivacyScreen from '@screens/PrivacyScreen';
+import PricingScreen from '@screens/PricingScreen';
 import * as Notifications from 'expo-notifications';
 
 const Tab = createBottomTabNavigator();
@@ -38,6 +41,9 @@ export default function App() {
 				<Stack.Screen name="Root" component={Tabs} />
 				<Stack.Screen name="SkinTypeQuiz" component={SkinTypeQuizScreen} />
 				<Stack.Screen name="AllergyQuiz" component={AllergyQuizScreen} />
+				<Stack.Screen name="Terms" component={TermsScreen} />
+				<Stack.Screen name="Privacy" component={PrivacyScreen} />
+				<Stack.Screen name="Pricing" component={PricingScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
