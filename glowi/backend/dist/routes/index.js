@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.streaksRouter = exports.routinesRouter = exports.quizRouter = exports.entriesRouter = exports.authRouter = void 0;
+exports.devRouter = exports.streaksRouter = exports.routinesRouter = exports.quizRouter = exports.entriesRouter = exports.authRouter = void 0;
 var auth_1 = require("./auth");
 Object.defineProperty(exports, "authRouter", { enumerable: true, get: function () { return auth_1.router; } });
 var entries_1 = require("./entries");
@@ -11,3 +11,5 @@ var routines_1 = require("./routines");
 Object.defineProperty(exports, "routinesRouter", { enumerable: true, get: function () { return routines_1.router; } });
 var streaks_1 = require("./streaks");
 Object.defineProperty(exports, "streaksRouter", { enumerable: true, get: function () { return streaks_1.router; } });
+var dev_1 = require("./dev");
+Object.defineProperty(exports, "devRouter", { enumerable: true, get: function () { return dev_1.router; } });

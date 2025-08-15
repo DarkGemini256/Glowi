@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 
-import { authRouter, entriesRouter, quizRouter, routinesRouter, streaksRouter } from './routes';
+import { authRouter, entriesRouter, quizRouter, routinesRouter, streaksRouter, devRouter } from './routes';
 
 const app = express();
 
@@ -26,6 +26,9 @@ app.use('/api/entries', entriesRouter);
 app.use('/api/quiz', quizRouter);
 app.use('/api/routines', routinesRouter);
 app.use('/api/streaks', streaksRouter);
+if (process.env.NODE_ENV !== 'production' || process.env.ALLOW_DEV_LOGIN) {
+	app.use('/api/dev', devRouter);
+}
 
 const port = Number(process.env.PORT) || 4000;
 app.listen(port, () => {

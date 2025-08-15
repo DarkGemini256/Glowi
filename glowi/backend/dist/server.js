@@ -25,6 +25,9 @@ app.use('/api/entries', routes_1.entriesRouter);
 app.use('/api/quiz', routes_1.quizRouter);
 app.use('/api/routines', routes_1.routinesRouter);
 app.use('/api/streaks', routes_1.streaksRouter);
+if (process.env.NODE_ENV !== 'production' || process.env.ALLOW_DEV_LOGIN) {
+    app.use('/api/dev', routes_1.devRouter);
+}
 const port = Number(process.env.PORT) || 4000;
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
